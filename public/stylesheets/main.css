@@ -1,0 +1,57 @@
+body {
+ box-sizing: border-box;
+ background-color: rgba(0,0,0,.5);
+ background-image: url("images/road-163518_1280.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-attachment: fixed;
+ background-size: cover;
+ width: 100%;
+ height: 100vh;
+}
+
+.container{
+ margin:auto;
+ 
+}
+
+.size {
+ background-color: rgba(0,0,0,.9);
+ margin:auto;
+ margin-top: 70px;
+ max-width: 664px;
+ padding:5px;
+ border-radius: 7px;
+}
+
+.header{
+ text-align: center;
+ color: white;
+}
+
+.firstp {
+ text-align: center;
+ color: red;
+}
+.secondp {
+ text-align: center;
+ color: white;
+}
+
+input{
+ width: 100%;
+ border-width: 0px;
+ padding-bottom: 0px;
+ outline:none;
+ 
+}
+
+.button {
+ margin-top: 5px;
+}
+
+@media screen and (max-width:780px) {
+ .size {
+  margin-top: 0px;
+ }
+}
