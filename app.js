@@ -5,8 +5,8 @@ const express = require("express"),
     mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const dburl = process.env.DBURL || "mongodb://localhost/user";
-mongoose.connect(dburl, { useNewUrlParser: true, useCreateIndex: true });
+const url = process.env.EECURL || "mongodb://localhost/user";
+mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 mongoose.set('debug', true);
 
 // Generate test SMTP service account from ethereal.email
@@ -42,35 +42,36 @@ app.post("/", async function(req, res) {
         let userMailOptions = {
             from: 'gs@nintia.in', // sender address
             to: req.body.email, // list of receivers
-            subject: `welcome to eec`, // Subject line
-            html: ' Hi There,' + '\t\n' +
-                'Imagine waking up, checking your email' + ' \n' +
-                'and receiving multiple sales notifications' + '\n' +
-                'like this… every… single… day.' + ' \n' +
-                '\n' +
-                'http://rdtrck2.com/5ae569f82c822c5ae99e40ac?sub1=nintia' + ' \n' +
-                '\n' +
-                'Our members, some with zero experience,' + ' \n' +
-                'are seeing results they have never seen' + ' \n' +
-                'before and that’s because of our system.' + ' \n' +
-                '\n' +
-                'The system literally does all the selling' + ' \n' +
-                'and you’re only job is to focus on building' + ' \n' +
-                'your own email list…' + ' \n' +
-                '\n' +
-                'Yes, you’re getting paid to build your list!' + ' \n' +
-                '\n' +
-                'http://rdtrck2.com/5ae569f82c822c5ae99e40ac?sub1=nintia' + ' \n' +
-                '\n' +
-                'Talk soon,' + ' \n' +
-                '   Gouri Shankar' // html body
+            subject: `Get paid to build your email list…`, // Subject line
+            text: `The secret to earning 6 or 7 or even 8
+figures per year having a massive list of
+high quality email subscribers.
+
+The only problem is that people don’t
+know how to build a system that will
+allow them to do that…(Until today)
+
+This brand new system helps you build
+your email list WHILE paying you easy
+commissions on complete autopilot.
+
+Create your free account here.
+http://rdtrck2.com/5ae569f82c822c5ae99e40ac?sub1=nintia
+
+The only catch is that you will have to
+spend 30 seconds creating your account.
+
+Talk soon,
+  Gouri Shankar
+            
+            `
         };
         transporter.sendMail(userMailOptions);
         let myMailOption = {
             from: 'projectmail@nintia.in', // sender address
             to: "gskumawat555@gmail.com", // list of receivers
             subject: 'new user registered at EEC', // Subject line
-            html: ` new user registered at EEC and his credentials are below : 
+            text: ` new user registered at EEC and his credentials are below : 
 email: ${email.email},
 date : ${email.date}
 help him well  
@@ -81,7 +82,7 @@ help him well
 
     }
     catch (err) {
-        // console.log(err);
+        console.log(err);
         res.redirect('back');
     }
 });
