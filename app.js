@@ -5,8 +5,8 @@ const express = require("express"),
     mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const url = process.env.EECURL || "mongodb://localhost/user";
-mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
+const dburl = process.env.DBURL || "mongodb://localhost/user";
+mongoose.connect(dburl, { useNewUrlParser: true, useCreateIndex: true });
 mongoose.set('debug', true);
 
 // Generate test SMTP service account from ethereal.email
