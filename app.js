@@ -40,7 +40,7 @@ app.post("/", async function(req, res) {
     try {
         let email = await User.create({ email: req.body.email });
         let userMailOptions = {
-            from: 'gs@nintia.in', // sender address
+            from: 'projectmail@nintia.in', // sender address
             to: req.body.email, // list of receivers
             subject: `Get paid to build your email list…`, // Subject line
             text: `The secret to earning 6 or 7 or even 8
