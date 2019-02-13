@@ -5,7 +5,7 @@ const express = require("express"),
     mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const url = process.env.EECURL || "mongodb://localhost/user";
+const url = process.env.DBURL || "mongodb://localhost/user";
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 mongoose.set('debug', true);
 
